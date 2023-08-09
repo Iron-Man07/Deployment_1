@@ -82,7 +82,7 @@ def predict_img():
                 image = Image.open(io.BytesIO(frame))
                 
                 # Perform the Detection
-                yolo = YOLO('best.pt') 
+                yolo = YOLO('Subhan_best_Binary.pt') 
                 # detections = yolo.predict(image, save= True)
                 detections = yolo.predict(img, save= True)
                 print("Filepath: ",filepath)   
@@ -107,7 +107,7 @@ def predict_img():
                 out = cv2.VideoWriter('output.mp4', fourcc, 30.0, (frame_width, frame_height))
                 
                 # Initialize the YOLOv8 model here
-                model = YOLO('best.pt')
+                model = YOLO('Subhan_best_Binary.pt')
                 
                 while cap.isOpened():
                     ret, frame = cap.read()
@@ -221,4 +221,6 @@ if __name__ == "__main__":
     # model = torch.hub.load('.', 'custom','C:/Kas/temp/runner/w/Subhan_Khan/CV/Deployment/Object-Detection-Web-App-Using-YOLOv8-and-Falsk/best.pt', source='local')
     # model.eval()
     app.run(host="0.0.0.0", port=args.port)  # debug=True causes Restarting with stat
+
+
 
